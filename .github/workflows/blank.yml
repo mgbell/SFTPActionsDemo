@@ -12,6 +12,9 @@ jobs:
         working-directory: ./
     steps:
     
+    - name: restore timestamps
+      uses: chetan/git-restore-mtime-action@v1
+    
     - name: SFTP uploader
       uses: wangyucode/sftp-upload-action@v1.4.1
       with:
