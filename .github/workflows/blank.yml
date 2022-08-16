@@ -11,6 +11,11 @@ jobs:
         shell: bash
         working-directory: ./
     steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
     
     - name: restore timestamps
       uses: chetan/git-restore-mtime-action@v1
