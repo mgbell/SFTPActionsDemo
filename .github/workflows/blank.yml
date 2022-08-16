@@ -1,0 +1,26 @@
+name: Staging Deploy
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: SFTP uploader
+      uses: wangyucode/sftp-upload-action@v1.4.1
+      with:
+        host: ${{ secrets.STAGING_FTP_HOST }}
+        username: ${{ secrets.STAGING_FTP_USERNAME }}
+        password: ${{ secrets.STAGING_FTP_PASSWORD }}
+        remoteDir: '/public_html/'
