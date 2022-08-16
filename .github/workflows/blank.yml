@@ -11,12 +11,7 @@ jobs:
         shell: bash
         working-directory: ./
     steps:
-
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-
+    
     - name: SFTP uploader
       uses: wangyucode/sftp-upload-action@v1.4.1
       with:
